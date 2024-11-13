@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,12 +27,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.Materia = materia;
-
-            txtId.Text = materia.Id.ToString();
-            txtMateria.Text = materia.Nombre.ToString();
-            cboProfe.SelectedValue = materia.Profesor.Id;
-            cboCarreras.SelectedValue = materia.Carrera.Id;
-            cboTurno.SelectedValue = materia.Turno.Id;
         }
         private void FrmDetalleMaterias_Load(object sender, EventArgs e)
         {
@@ -38,9 +34,22 @@ namespace WindowsFormsApp1
 
 
             if (Materia != null)
+            {
+
                 btnAceptar.Text = "Modificar";
+                txtId.Text = Materia.Id.ToString();
+                txtMateria.Text = Materia.Nombre.ToString();
+                cboProfe.SelectedValue = Materia.Profesor.Id;
+                cboCarreras.SelectedValue = Materia.Carrera.Id;
+                cboTurno.SelectedValue = Materia.Turno.Id;
+                btnEliminar.Visible = true;
+            }
             else
+            {
                 btnAceptar.Text = "Grabar Materia";
+
+            }
+
 
         }
 
@@ -79,7 +88,6 @@ namespace WindowsFormsApp1
             MateriaNegocio Negocio = new MateriaNegocio();
             
             if(Materia == null)
-            {
                 Materia = new Materia();
 
                 Materia.Nombre = txtMateria.Text;
@@ -87,16 +95,36 @@ namespace WindowsFormsApp1
                 Materia.Carrera= (Carrera)cboCarreras.SelectedItem;
                 Materia.Turno = (Turno)cboTurno.SelectedItem;
    
-            }
 
             if(Materia.Id == 0)
             {
-                Negocio.CargaMateria(Materia);
+                Negocio.Agregar(Materia);
                 MessageBox.Show("Materia Agregada Exitosamente!!");
                 Close();
             }
+            else
+            {
+                Negocio.Modificar(Materia);
+                MessageBox.Show("Materia Modificada Exitosamente!!");
+                Close();
+
+            }
 
 
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            MateriaNegocio Negocio = new MateriaNegocio();
+            DialogResult  respuesta = MessageBox.Show($"Eliminas {Materia.Nombre}?" , "Eliminando" , MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            FrmMaterias frmMaterias = new FrmMaterias();
+            if(respuesta == DialogResult.Yes)
+            {
+                Negocio.Eliminar(Materia.Id);
+                Close();
+                frmMaterias.ShowDialog();
+            }
 
         }
     }
