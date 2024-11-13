@@ -67,6 +67,7 @@
             this.btnProfesores.TabIndex = 2;
             this.btnProfesores.Text = "PROFESORES";
             this.btnProfesores.UseVisualStyleBackColor = true;
+            this.btnProfesores.Click += new System.EventHandler(this.btnProfesores_Click);
             // 
             // btnUsuario
             // 
@@ -77,6 +78,7 @@
             this.btnUsuario.TabIndex = 3;
             this.btnUsuario.Text = "USUARIO";
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnAlumnos
             // 

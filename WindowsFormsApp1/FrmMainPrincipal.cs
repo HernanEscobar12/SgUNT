@@ -48,5 +48,17 @@ namespace WindowsFormsApp1
             FrmCarreras Carreras = new FrmCarreras();
             Carreras.ShowDialog();
         }
+
+        private void btnProfesores_Click(object sender, EventArgs e)
+        {
+            FrmProfesor frmProfesor = new FrmProfesor();
+            frmProfesor.ShowDialog();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios frmUsuarios = new FrmUsuarios();
+            frmUsuarios.ShowDialog();
+        }
     }
 }
