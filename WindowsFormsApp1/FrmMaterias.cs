@@ -44,6 +44,7 @@ namespace WindowsFormsApp1
             Seleccionado = (Materia)dgvMaterias.CurrentRow.DataBoundItem;
             FrmDetalleMaterias DetalleMateria = new FrmDetalleMaterias(Seleccionado);
             DetalleMateria.ShowDialog();
+            Close();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

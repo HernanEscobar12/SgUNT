@@ -42,6 +42,7 @@
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -181,11 +182,25 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(184, 339);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(129, 32);
+            this.btnEliminar.TabIndex = 33;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FrmDetalleMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 384);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.label4);
@@ -223,5 +238,6 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

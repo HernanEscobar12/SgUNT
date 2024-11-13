@@ -39,5 +39,41 @@ namespace Capa_Negocio
 
         }
 
+        public List<Usuario> ListarUsuarios()
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            List<Usuario> Lista = new List<Usuario>();
+            try
+            {
+                Datos.SetConsulta("select Id_Usuario, Apellido, Nombre, Usuario, Clave from USUARIO");
+                Datos.EjecutarLectura();
+
+                while (Datos.Reader.Read())
+                {
+                    Usuario Aux = new Usuario();
+                    Aux.IdUsuario = (int)Datos.Reader["Id_Usuario"];
+                    Aux.Apellido = (string)Datos.Reader["Apellido"];
+                    Aux.Nombre = (string)Datos.Reader["Nombre"];
+                    Aux.User = (string)Datos.Reader["Usuario"];
+                    Aux.Clave = (string)Datos.Reader["Clave"];
+
+                    Lista.Add(Aux);
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+
+
+
+        }
     }
 }

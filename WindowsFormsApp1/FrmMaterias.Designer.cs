@@ -38,7 +38,7 @@
             // 
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMaterias.Location = new System.Drawing.Point(12, 83);
+            this.dgvMaterias.Location = new System.Drawing.Point(21, 40);
             this.dgvMaterias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

@@ -88,6 +88,18 @@
     <Compile Include="FrmNuevaCarrera.Designer.cs">
       <DependentUpon>FrmNuevaCarrera.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfesor.Designer.cs">
+      <DependentUpon>FrmProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCarreras.resx">
@@ -110,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevaCarrera.resx">
       <DependentUpon>FrmNuevaCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProfesor.resx">
+      <DependentUpon>FrmProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
