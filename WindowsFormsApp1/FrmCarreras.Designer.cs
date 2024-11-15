@@ -39,6 +39,7 @@
             this.dgvCarreras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarreras.Location = new System.Drawing.Point(12, 12);
             this.dgvCarreras.Name = "dgvCarreras";
+            this.dgvCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarreras.Size = new System.Drawing.Size(384, 298);
             this.dgvCarreras.TabIndex = 0;
             // 
@@ -50,6 +51,7 @@
             this.btnSeleccionar.TabIndex = 1;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // btnNueva
             // 

@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class FrmCarreras : Form
     {
+        private Carrera carrera = new Carrera();
         public FrmCarreras()
         {
             InitializeComponent();
@@ -21,14 +22,29 @@ namespace WindowsFormsApp1
 
         private void FrmCarreras_Load(object sender, EventArgs e)
         {
-            CarreraNegocio Negocio = new CarreraNegocio();
-            dgvCarreras.DataSource = Negocio.ListaCarreras();
+            CargarCbo();
         }
         
         private void btnNueva_Click(object sender, EventArgs e)
         {
             FrmNuevaCarrera Nuevo = new FrmNuevaCarrera();
             Nuevo.ShowDialog();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            carrera = (Carrera)dgvCarreras.CurrentRow.DataBoundItem;
+            FrmNuevaCarrera FrmNueva = new FrmNuevaCarrera(carrera);
+            FrmNueva.ShowDialog();
+            CargarCbo();
+        }
+
+
+        public void CargarCbo()
+        {
+            dgvCarreras.DataSource = null;
+            CarreraNegocio Negocio = new CarreraNegocio();
+            dgvCarreras.DataSource = Negocio.ListaCarreras();
         }
     }
 }

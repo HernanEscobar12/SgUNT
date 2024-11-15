@@ -1,4 +1,5 @@
 ﻿using Capa_Dominio;
+using Capa_Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,33 @@ namespace WindowsFormsApp1
 {
     public partial class FrmNuevaCarrera : Form
     {
+        public Carrera carrera = null;
         public FrmNuevaCarrera()
         {
             InitializeComponent();
         }
 
+        public FrmNuevaCarrera(Carrera carrera)
+        {
+            InitializeComponent();
+            this.carrera = carrera;
+        }
+
         private void FrmNuevaCarrera_Load(object sender, EventArgs e)
         {
             CargarCbo();
+
+            if (carrera != null)
+            {
+                txtCarrera.Text = carrera.Nombre.ToString();
+                cboSede.SelectedItem = carrera.Sede.ToString();
+                btnAceptar.Text = "Modificar";
+                btnEliminar.Visible = true;
+            }
+            else
+            {
+                btnAceptar.Text = "Agregar";
+            }
         }
 
 
@@ -35,12 +55,47 @@ namespace WindowsFormsApp1
             cboSede.Items.Add("Zarate");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Carrera Carrera = new Carrera();
 
-            Carrera.Nombre = txtCarrera.Text;
-            Carrera.Sede = (string)cboSede.SelectedItem;
+            CarreraNegocio negocio = new CarreraNegocio();
+            if (carrera == null)
+               carrera = new Carrera();
+
+            carrera.Nombre = txtCarrera.Text;
+            carrera.Sede = (string)cboSede.SelectedItem;
+
+            if (carrera.Id == 0)
+            {
+                negocio.Agregar(carrera);
+                MessageBox.Show("Agregado exitosamente!!!");
+            }
+            else
+            {
+                negocio.Modificar(carrera);
+                MessageBox.Show("Modificado Exitosamente");
+            }
+
+
+
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            CarreraNegocio Negocio = new CarreraNegocio();
+            DialogResult respuesta = MessageBox.Show($"Eliminas {carrera.Nombre}?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                Negocio.Eliminar(carrera.Id);
+                Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
+
