@@ -43,8 +43,10 @@
             // dgvMaterias
             // 
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMaterias.Location = new System.Drawing.Point(21, 86);
             this.dgvMaterias.Name = "dgvMaterias";
+            this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaterias.Size = new System.Drawing.Size(649, 231);
             this.dgvMaterias.TabIndex = 0;
             // 
@@ -88,6 +90,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(339, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cboAlumnos
             // 
@@ -115,6 +118,7 @@
             this.btnCargar.TabIndex = 4;
             this.btnCargar.Text = "Cargar Materia";
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // FrmCursos
             // 
@@ -128,6 +132,7 @@
             this.Controls.Add(this.dgvMaterias);
             this.Name = "FrmCursos";
             this.Text = "Cursos";
+            this.Load += new System.EventHandler(this.FrmCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).EndInit();
             this.gboFiltrar.ResumeLayout(false);
             this.gboFiltrar.PerformLayout();

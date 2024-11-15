@@ -18,7 +18,7 @@ namespace Capa_Negocio
             List<Materia> ListaDeMaterias = new List<Materia>();
             try
             {
-                Datos.SetConsulta("select P.Nombre as Profe, P.Id_Profesor ,M.Nombre as Materia, M.Id_Materia , C.Nombre as Carrera, C.Id_Carrera  ,T.Descripcion as Turno, T.IdTurno from MATERIA M inner join PROFESOR P on M.Id_Profesor = P.Id_Profesor inner join CARRERA C on M.Id_Carrera = C.Id_Carrera inner join ESTADO_TURNO T on M.TurnoId = T.IdTurno\r\n");
+                Datos.SetConsulta("select P.Nombre as Profe, P.Id_Profesor ,M.Nombre as Materia, M.Id_Materia , C.Nombre as Carrera, C.Id_Carrera  ,T.Descripcion as Turno, T.IdTurno from MATERIA M inner join PROFESOR P on M.Id_Profesor = P.Id_Profesor inner join CARRERA C on M.Id_Carrera = C.Id_Carrera inner join ESTADO_TURNO T on M.TurnoId = T.IdTurno");
                 Datos.EjecutarLectura();
 
                 while (Datos.Reader.Read())
@@ -64,12 +64,12 @@ namespace Capa_Negocio
 
             try
             {
+                
                 Datos.SetConsulta("insert into MATERIA (Id_Profesor, Id_Carrera, Nombre, TurnoId) values (@IdProfe, @IdCarrera, @Nombre, @TurnoID)");
                 Datos.SetearParametros("@IdProfe", Materia.Profesor.Id);
                 Datos.SetearParametros("@IdCarrera", Materia.Carrera.Id);
                 Datos.SetearParametros("@Nombre", Materia.Nombre);
                 Datos.SetearParametros("TurnoID", Materia.Turno.Id);
-
                 Datos.EjecutarAccion();
             }
             catch (Exception ex)
