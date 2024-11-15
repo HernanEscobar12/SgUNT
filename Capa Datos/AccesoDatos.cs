@@ -21,7 +21,7 @@ namespace Capa_Datos
 
         public AccesoDatos()
         {
-            connection = new SqlConnection("server=.\\SQLEXPRESS; Database=BD_BaseDatos1; integrated security=true");
+            connection = new SqlConnection("server=localhost; Database=BD_BaseDatos1; integrated security=true");
             command = new SqlCommand();
         }
 

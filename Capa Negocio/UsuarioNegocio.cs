@@ -13,7 +13,7 @@ namespace Capa_Negocio
         public bool Login(Usuario User)
         {
             AccesoDatos Datos = new AccesoDatos();
-
+            List<Usuario> ListaUsuarios = new List<Usuario>();
             try
             {
                 Datos.SetConsulta("select USUARIO, Clave, Nombre from USUARIO where Usuario = @user and Clave= @clave");
@@ -25,14 +25,20 @@ namespace Capa_Negocio
                 {
                     Usuario usuario = new Usuario();
                     usuario.User = (string)Datos.Reader["Nombre"];
+                    usuario.Clave = (string)Datos.Reader["Clave"];
+
+                    ListaUsuarios.Add(User);
                 }
-                
-                return true;
+
+                if (ListaUsuarios.Count >= 1)
+                    return true;
+                else
+                    return false;
+
 
             }
             catch (Exception ex)
             {
-                return false;
                 throw ex;
             }
 
