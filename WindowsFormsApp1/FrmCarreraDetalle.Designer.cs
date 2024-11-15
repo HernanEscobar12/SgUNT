@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class FrmNuevaCarrera
+    partial class FrmCarreraDetalle
     {
         /// <summary>
         /// Required designer variable.

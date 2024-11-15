@@ -95,7 +95,7 @@
             // cboAlumnos
             // 
             this.cboAlumnos.FormattingEnabled = true;
-            this.cboAlumnos.Location = new System.Drawing.Point(21, 351);
+            this.cboAlumnos.Location = new System.Drawing.Point(21, 374);
             this.cboAlumnos.Name = "cboAlumnos";
             this.cboAlumnos.Size = new System.Drawing.Size(252, 21);
             this.cboAlumnos.TabIndex = 2;
@@ -103,7 +103,7 @@
             // cboMaterias
             // 
             this.cboMaterias.FormattingEnabled = true;
-            this.cboMaterias.Location = new System.Drawing.Point(304, 351);
+            this.cboMaterias.Location = new System.Drawing.Point(304, 374);
             this.cboMaterias.Name = "cboMaterias";
             this.cboMaterias.Size = new System.Drawing.Size(250, 21);
             this.cboMaterias.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             this.btnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargar.Location = new System.Drawing.Point(570, 351);
+            this.btnCargar.Location = new System.Drawing.Point(570, 374);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(100, 23);
             this.btnCargar.TabIndex = 4;
@@ -130,7 +130,10 @@
             this.Controls.Add(this.cboAlumnos);
             this.Controls.Add(this.gboFiltrar);
             this.Controls.Add(this.dgvMaterias);
+            this.MaximumSize = new System.Drawing.Size(719, 446);
+            this.MinimumSize = new System.Drawing.Size(719, 446);
             this.Name = "FrmCursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.FrmCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).EndInit();

@@ -43,15 +43,15 @@ namespace WindowsFormsApp1
         {
             Seleccionado = (Materia)dgvMaterias.CurrentRow.DataBoundItem;
             FrmDetalleMaterias DetalleMateria = new FrmDetalleMaterias(Seleccionado);
-            DetalleMateria.ShowDialog();
-            Close();
+            DetalleMateria.FormClosed += (s, args) => CargarDgv();
+            DetalleMateria.ShowDialog(this);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetalleMaterias Nuevo = new FrmDetalleMaterias();
-            Nuevo.ShowDialog();
-            Close();
+            Nuevo.FormClosed += (s, args) => CargarDgv();
+            Nuevo.ShowDialog(this);
         }
 
 

@@ -81,5 +81,67 @@ namespace Capa_Negocio
 
 
         }
+
+
+        public void Agregar(Usuario User)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.SetConsulta("insert into USUARIO (Apellido , Nombre, Usuario, Clave ) VALUES (@apellido , @nombre , @user, @clave)");
+                Datos.SetearParametros("@nombre", User.Nombre);
+                Datos.SetearParametros("@apellido", User.Apellido);
+                Datos.SetearParametros("@user", User.User);
+                Datos.SetearParametros("@clave", User.Clave);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { Datos.CerrarConexion(); }
+        }
+
+
+        public void Modificar(Usuario user)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.SetConsulta("update USUARIO set Apellido = @apellido , Nombre = @nombre, Usuario = @user , Clave = @clave where Id_Usuario = @id");
+                Datos.SetearParametros("@nombre", user.Nombre);
+                Datos.SetearParametros("@apellido", user.Apellido);
+                Datos.SetearParametros("@user", user.User);
+                Datos.SetearParametros("@clave", user.Clave);
+                Datos.SetearParametros("@id", user.IdUsuario);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { Datos.CerrarConexion(); }
+        }
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.SetConsulta("Delete USUARIO from  where Id_Usuario = @id");
+                Datos.SetearParametros("@id", id);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -23,18 +23,7 @@ namespace WindowsFormsApp1
 
         private void FrmCursos_Load(object sender, EventArgs e)
         {
-            CursoNegocio Negocio = new CursoNegocio();
-            AlumnoNegocio alumnoNegocio = new AlumnoNegocio();
-            MateriaNegocio MateriaNegocio = new MateriaNegocio();
-
-            ListaCursos = Negocio.ListarCurso();
-            dgvMaterias.DataSource = ListaCursos;
-            cboAlumnos.DataSource = alumnoNegocio.ListarAlumnos();
-            cboAlumnos.ValueMember = "Id";
-            cboAlumnos.DisplayMember = "Nombre";
-            cboMaterias.DataSource = MateriaNegocio.ListaMaterias();
-            cboMaterias.ValueMember = "Id";
-            cboMaterias.DisplayMember = "Nombre";
+          Cargar();
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -47,6 +36,8 @@ namespace WindowsFormsApp1
             curso.Materia = (Materia)cboMaterias.SelectedItem;
 
             cursoNegocio.Agregar(curso);
+
+            Cargar();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -77,6 +68,26 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void Cargar()
+        {
+            CursoNegocio Negocio = new CursoNegocio();
+            AlumnoNegocio alumnoNegocio = new AlumnoNegocio();
+            MateriaNegocio MateriaNegocio = new MateriaNegocio();
+            dgvMaterias.DataSource = null;
+            ListaCursos = Negocio.ListarCurso();
+            dgvMaterias.DataSource = ListaCursos;
+            cboAlumnos.DataSource = alumnoNegocio.ListarAlumnos();
+            cboAlumnos.ValueMember = "Id";
+            cboAlumnos.DisplayMember = "Nombre";
+            cboMaterias.DataSource = MateriaNegocio.ListaMaterias();
+            cboMaterias.ValueMember = "Id";
+            cboMaterias.DisplayMember = "Nombre";
+            dgvMaterias.Columns["IdCurso"].Visible = false;
+
+        }
+
+
     }
 }
 

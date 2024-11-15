@@ -37,6 +37,7 @@
             // dgvCarreras
             // 
             this.dgvCarreras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarreras.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCarreras.Location = new System.Drawing.Point(12, 12);
             this.dgvCarreras.Name = "dgvCarreras";
             this.dgvCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -71,7 +72,10 @@
             this.Controls.Add(this.btnNueva);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvCarreras);
+            this.MaximumSize = new System.Drawing.Size(440, 410);
+            this.MinimumSize = new System.Drawing.Size(440, 410);
             this.Name = "FrmCarreras";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carreras";
             this.Load += new System.EventHandler(this.FrmCarreras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarreras)).EndInit();

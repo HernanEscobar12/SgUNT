@@ -27,16 +27,17 @@ namespace WindowsFormsApp1
         
         private void btnNueva_Click(object sender, EventArgs e)
         {
-            FrmNuevaCarrera Nuevo = new FrmNuevaCarrera();
+            FrmCarreraDetalle Nuevo = new FrmCarreraDetalle();
+            Nuevo.FormClosed += (s, args) => CargarCbo();
             Nuevo.ShowDialog();
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             carrera = (Carrera)dgvCarreras.CurrentRow.DataBoundItem;
-            FrmNuevaCarrera FrmNueva = new FrmNuevaCarrera(carrera);
+            FrmCarreraDetalle FrmNueva = new FrmCarreraDetalle(carrera);
+            FrmNueva.FormClosed += (s, args) => CargarCbo();
             FrmNueva.ShowDialog();
-            CargarCbo();
         }
 
 
@@ -45,6 +46,7 @@ namespace WindowsFormsApp1
             dgvCarreras.DataSource = null;
             CarreraNegocio Negocio = new CarreraNegocio();
             dgvCarreras.DataSource = Negocio.ListaCarreras();
+            dgvCarreras.Columns["Id"].Visible = false;
         }
     }
 }

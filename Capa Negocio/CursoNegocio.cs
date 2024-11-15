@@ -18,7 +18,7 @@ namespace Capa_Negocio
 
             try
             {
-                Datos.SetConsulta("select Am.Id_Registro as IdRegistro, Am.Id_Alumno as IdAlumno , Am.Id_Materia as IdMateria ,A.Apellido as Apellido , A.Nombre as Nombre ,M.Nombre as Materia from  ALUMNO_MATERIA Am inner join ALUMNO A on A.Id_Alumno  = Am.Id_Alumno inner join MATERIA M on M.Id_Materia = Am.Id_Materia");
+                Datos.SetConsulta("select Am.Id_Registro as IdRegistro, Am.Id_Alumno as IdAlumno , Am.Id_Materia as IdMateria ,A.Apellido as Apellido , A.Nombre as Nombre, A.Dni as Dni, M.Nombre as Materia from  ALUMNO_MATERIA Am inner join ALUMNO A on A.Id_Alumno  = Am.Id_Alumno inner join MATERIA M on M.Id_Materia = Am.Id_Materia");
                 Datos.EjecutarLectura();
 
                 while (Datos.Reader.Read())
@@ -29,6 +29,7 @@ namespace Capa_Negocio
                     curso.Alumno.Id = (int)Datos.Reader["IdAlumno"];
                     curso.Alumno.Nombre = (string)Datos.Reader["Nombre"];
                     curso.Alumno.Apellido = (string)Datos.Reader["Apellido"];
+                    curso.Alumno.Dni = (string)Datos.Reader["Dni"];
                     curso.Materia = new Materia();
                     curso.Materia.Id = (int)Datos.Reader["IdMateria"];
                     curso.Materia.Nombre = (string)Datos.Reader["Materia"];

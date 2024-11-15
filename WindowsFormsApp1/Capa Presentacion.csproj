@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAlumnoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlumnoDetalle.Designer.cs">
+      <DependentUpon>FrmAlumnoDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlumnos.Designer.cs">
+      <DependentUpon>FrmAlumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCarreras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,17 +94,29 @@
     <Compile Include="FrmMaterias.Designer.cs">
       <DependentUpon>FrmMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNuevaCarrera.cs">
+    <Compile Include="FrmCarreraDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNuevaCarrera.Designer.cs">
-      <DependentUpon>FrmNuevaCarrera.cs</DependentUpon>
+    <Compile Include="FrmCarreraDetalle.Designer.cs">
+      <DependentUpon>FrmCarreraDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProfeDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfeDetalle.Designer.cs">
+      <DependentUpon>FrmProfeDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProfesor.Designer.cs">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarioDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioDetalles.Designer.cs">
+      <DependentUpon>FrmUsuarioDetalles.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -102,6 +126,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAlumnoDetalle.resx">
+      <DependentUpon>FrmAlumnoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlumnos.resx">
+      <DependentUpon>FrmAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCarreras.resx">
       <DependentUpon>FrmCarreras.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,11 +150,17 @@
     <EmbeddedResource Include="FrmMaterias.resx">
       <DependentUpon>FrmMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNuevaCarrera.resx">
-      <DependentUpon>FrmNuevaCarrera.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCarreraDetalle.resx">
+      <DependentUpon>FrmCarreraDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProfeDetalle.resx">
+      <DependentUpon>FrmProfeDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfesor.resx">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioDetalles.resx">
+      <DependentUpon>FrmUsuarioDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

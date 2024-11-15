@@ -89,6 +89,7 @@
             this.btnAlumnos.TabIndex = 4;
             this.btnAlumnos.Text = "ALUMNOS";
             this.btnAlumnos.UseVisualStyleBackColor = true;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnMaterias
             // 
@@ -113,8 +114,11 @@
             this.Controls.Add(this.btnProfesores);
             this.Controls.Add(this.BtnCurso);
             this.Controls.Add(this.btnCarreras);
+            this.MaximumSize = new System.Drawing.Size(367, 479);
+            this.MinimumSize = new System.Drawing.Size(367, 479);
             this.Name = "FrmMainPrincipal";
-            this.Text = "FrmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu Principal";
             this.Load += new System.EventHandler(this.FrmMainPrincipal_Load);
             this.ResumeLayout(false);
 

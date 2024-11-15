@@ -12,15 +12,15 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmNuevaCarrera : Form
+    public partial class FrmCarreraDetalle : Form
     {
         public Carrera carrera = null;
-        public FrmNuevaCarrera()
+        public FrmCarreraDetalle()
         {
             InitializeComponent();
         }
 
-        public FrmNuevaCarrera(Carrera carrera)
+        public FrmCarreraDetalle(Carrera carrera)
         {
             InitializeComponent();
             this.carrera = carrera;
@@ -60,22 +60,28 @@ namespace WindowsFormsApp1
 
             CarreraNegocio negocio = new CarreraNegocio();
             if (carrera == null)
-               carrera = new Carrera();
+                carrera = new Carrera();
 
             carrera.Nombre = txtCarrera.Text;
             carrera.Sede = (string)cboSede.SelectedItem;
 
-            if (carrera.Id == 0)
+            if (txtCarrera.Text != "" && cboSede.SelectedIndex != 0)
             {
-                negocio.Agregar(carrera);
-                MessageBox.Show("Agregado exitosamente!!!");
+                if (carrera.Id == 0)
+                {
+                    negocio.Agregar(carrera);
+                    MessageBox.Show("Agregado exitosamente!!!");
+                }
+                else
+                {
+                    negocio.Modificar(carrera);
+                    MessageBox.Show("Modificado Exitosamente");
+                }
             }
             else
             {
-                negocio.Modificar(carrera);
-                MessageBox.Show("Modificado Exitosamente");
+                MessageBox.Show("Hay campos vacios!!");
             }
-
 
 
 

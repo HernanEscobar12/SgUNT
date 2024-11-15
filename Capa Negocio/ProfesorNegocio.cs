@@ -47,6 +47,63 @@ namespace Capa_Negocio
 
         }
 
+        public void Agregar(Profesor profe)
+        {
+            AccesoDatos Datos = new AccesoDatos();
 
+            try
+            {
+                Datos.SetConsulta("insert into PROFESOR  (Nombre , Apellido, Email) VALUES (@nombre, @apellido, @email)");
+                Datos.SetearParametros("@nombre", profe.Nombre);
+                Datos.SetearParametros("@apellido", profe.Apellido);
+                Datos.SetearParametros("@email", profe.Email);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { Datos.CerrarConexion(); }
+        }
+
+
+        public void Modificar(Profesor profesor)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.SetConsulta("Update PROFESOR set  Nombre = @nombre , Apellido = @apellido, Email = @email where Id_Profesor = @id");
+                Datos.SetearParametros("@nombre", profesor.Nombre);
+                Datos.SetearParametros("@apellido", profesor.Apellido);
+                Datos.SetearParametros("@email", profesor.Email);
+                Datos.SetearParametros("@id", profesor.Id);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { Datos.CerrarConexion(); }
+        }
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.SetConsulta("Delete from PROFESOR where Id_Profesor = @id");
+                Datos.SetearParametros("@id" , id);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

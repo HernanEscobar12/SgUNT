@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
 
         private void btnProfesores_Click(object sender, EventArgs e)
         {
-            FrmProfesor frmProfesor = new FrmProfesor();
+            FrmProfesores frmProfesor = new FrmProfesores();
             frmProfesor.ShowDialog();
         }
 
@@ -59,6 +59,12 @@ namespace WindowsFormsApp1
         {
             FrmUsuarios frmUsuarios = new FrmUsuarios();
             frmUsuarios.ShowDialog();
+        }
+
+        private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+            FrmAlumnos frmAlumnos = new FrmAlumnos();
+            frmAlumnos.ShowDialog();    
         }
     }
 }
